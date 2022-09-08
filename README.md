@@ -4,6 +4,7 @@ Team:
 
 * Person 1 - Qingying Meng (shoes microservice)
 * Person 2 - Carmen Tang (hats microservice)
+Person 3
 
 ## Design
 
