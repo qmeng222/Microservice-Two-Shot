@@ -43,16 +43,10 @@ class ShoesDetailEncoder(ModelEncoder):
 def api_list_shoes(request, bin_vo_id=None):
     if request.method == "GET":
         if bin_vo_id is not None:
-            print("I'm in the bin")
-            print("XXXXXXX", BinVO.objects.all())
             shoes = Shoes.objects.filter(bin=bin_vo_id)
-            print("我的盒子：", bin_vo_id)
-            print("结果：", shoes)
         else:
             shoes = Shoes.objects.all()
-            print("MY SHOES:", shoes)
         return JsonResponse(
-            {"我的鞋子：": shoes},
             encoder=ShoesListEncoder,
         )
     else:
