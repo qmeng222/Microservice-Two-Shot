@@ -14,30 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from shoes_rest.views  import api_list_shoes,  api_show_shoe
+from django.urls import path, include
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # list shoes in a bin ("GET"):
-    path(
-        'bins/<int:bin_vo_id>/shoes/',
-        api_list_shoes,
-        name='api_list_shoes',
-    ),
-
-    # create a pair of shoes ("POST"):
-    path(
-        'shoes/',
-        api_list_shoes,
-        name='api_create_shoe'
-    ),
-
-    # show shoe detail ("GET"):
-    path(
-        'shoes/<int:pk>/',
-        api_show_shoe,
-        name='api_show_shoe'
-    ),
+    path('api/', include('shoes_rest.urls')),
 ]

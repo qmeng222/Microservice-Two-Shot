@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+
 class BinVO(models.Model):
     # refere to wardrobe > api > wardrobe_api > models.py
     closet_name = models.CharField(max_length=100)
@@ -26,5 +27,5 @@ class Shoes(models.Model):
     def __str__(self):
         return self.name
 
-    def get_api_url(self):
-        return reverse("api_show_shoe", kwargs={"pk": self.pk})
+    # def get_api_url(self):
+    #     return reverse("api_show_shoes", kwargs={"pk": self.pk})

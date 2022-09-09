@@ -2,8 +2,8 @@ import django
 import os
 import sys
 import time
-import json
 import requests
+import json
 
 sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "shoes_project.settings")
@@ -11,12 +11,12 @@ django.setup()
 
 # Import models from hats_rest, here.
 # from shoes_rest.models import Something
-from ..api.shoes_rest.models import BinVO
+from shoes_rest.models import BinVO
 
 def get_bins():
     response = requests.get("http://wardrobe-api:8000/api/bins/")
     content = json.loads(response.content)
-    print("bins content:", content)
+    print("在这里在这里在这里在这里在这里:", content)
     for bin in content["bins"]:
         BinVO.objects.update_or_create(
             import_href = bin["href"],
