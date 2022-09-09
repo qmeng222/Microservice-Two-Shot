@@ -13,16 +13,15 @@ class LocationVODetailEncoder(ModelEncoder):
     properties = ["closet_name", "section_number", "shelf_number", "import_href"]
 
     def get_extra_data(self, o):
-        return {"details": f"{o.closet_name} - section {o.section_number} / shelf {o.shelf_number}"}
+        return {"details": f"{o.closet_name} - section {o.section_number} - shelf {o.shelf_number}"}
 
 
 class HatListEncoder(ModelEncoder):
     model = Hat
-    properties = ["style", "fabric", "color"]
+    properties = ["style", "fabric", "color", "id"]
 
-    encoders = {
-        "location": LocationVODetailEncoder(),
-    }
+    def get_extra_data(self, o):
+        return {"location": o.location.id}
 
 class HatDetailEncoder(ModelEncoder):
     model = Hat
@@ -34,16 +33,21 @@ class HatDetailEncoder(ModelEncoder):
 
 
 @require_http_methods(["GET","POST"])
-def list_hats(request):
-    if request.method == "GET":        
-        hats = Hat.objects.all()
+def list_hats(request, location_vo_id=None):
+    if request.method == "GET":
+        if location_vo_id is not None:
+            print("hi", location_vo_id)
+            hats = Hat.objects.filter(location=location_vo_id)
+        else:        
+            hats = Hat.objects.all()
+        
         return JsonResponse(
             {"hats": hats},
             encoder=HatListEncoder,
         )
+
     else:
         content = json.loads(request.body)
-        print(content)
 
         try:
             location_href = content["location"]
@@ -64,7 +68,7 @@ def list_hats(request):
             safe=False,
         )
 
-@require_http_methods(["GET", "DELETE"])
+@require_http_methods(["GET", "PUT","DELETE"])
 def show_hat(request, pk):
 
     if request.method == "GET":
@@ -84,3 +88,6 @@ def show_hat(request, pk):
     else:
         count, _ = Hat.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
+
+
+

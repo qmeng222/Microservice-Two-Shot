@@ -17,7 +17,6 @@ def get_locations():
     response = requests.get("http://wardrobe-api:8000/api/locations/")
     content = json.loads(response.content)
     for location in content["locations"]:
-        print(location)
         LocationVO.objects.update_or_create(
             import_href = location["href"],
             defaults = {
@@ -34,7 +33,6 @@ def poll():
         try:
             # Write your polling logic, here
             get_locations()
-            print("hi??")
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(60)
