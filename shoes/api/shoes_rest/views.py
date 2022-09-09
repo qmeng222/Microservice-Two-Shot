@@ -19,8 +19,13 @@ class ShoesListEncoder(ModelEncoder):
         "manufacturer",
         "name",
         "color",
+        "id",
     ]
 
+    def get_extra_data(self, o):
+        return {
+            "bin_number": o.bin.bin_number,
+        }
 
 
 class ShoesDetailEncoder(ModelEncoder):
@@ -82,7 +87,7 @@ def api_show_shoes(request, pk):
         return JsonResponse(
             {"deleted": count > 0}
         )
-    else:
+    else: # "PUT"
         content = json.loads(request.body)
         if "bin" in content:
             try:

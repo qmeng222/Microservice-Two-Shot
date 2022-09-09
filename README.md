@@ -2,8 +2,11 @@
 
 Team:
 
-- Qingying Meng: shoes microservice
-- Carmen Tang: hats microservice
+- Carmen Tang:
+- hats microservice: http://localhost:3000/hats
+
+- Qingying Meng:
+- shoes micservice: http://localhost:3000/shoes
 
 ## Design
 
