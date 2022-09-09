@@ -22,4 +22,7 @@
     "python.analysis.extraPaths": [
         "./hats/api"
     ]
+},
+{
+  "python.analysis.extraPaths": ["./shoes/api"]
 }

@@ -2,8 +2,11 @@
 
 Team:
 
-* Person 1 - Qingying Meng (shoes microservice)
-* Person 2 - Carmen Tang (hats microservice)
+- Carmen Tang:
+- hats microservice: http://localhost:3000/hats
+
+- Qingying Meng:
+- shoes micservice: http://localhost:3000/shoes
 
 ## Design
 
@@ -11,6 +14,11 @@ Team:
 
 Explain your models and integration with the wardrobe
 microservice, here.
+
+- wardrobe API: 8000
+- browser/Insomnia: 8100
+- shoes microservice: 8080
+- hats microservice: 8090
 
 ## Hats microservice
 
