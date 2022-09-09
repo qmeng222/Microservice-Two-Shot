@@ -10,7 +10,6 @@ class BinVODetailEncoder(ModelEncoder):
     properties = [
         "closet_name",
         "import_href",
-        "id",
     ]
 
 
@@ -22,8 +21,6 @@ class ShoesListEncoder(ModelEncoder):
         "color",
     ]
 
-    def get_extra_data(self, o):
-        return {"bin": o.bin.id}
 
 
 class ShoesDetailEncoder(ModelEncoder):
@@ -47,6 +44,7 @@ def api_list_shoes(request, bin_vo_id=None):
         else:
             shoes = Shoes.objects.all()
         return JsonResponse(
+            {"shoes": shoes},
             encoder=ShoesListEncoder,
         )
     else:
