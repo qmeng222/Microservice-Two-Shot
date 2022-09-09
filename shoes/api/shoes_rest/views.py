@@ -15,7 +15,11 @@ class BinVODetailEncoder(ModelEncoder):
 
 class ShoesListEncoder(ModelEncoder):
     model = Shoes
-    properties = ["name"]
+    properties = [
+        "manufacturer",
+        "name",
+        "color",
+    ]
 
 
 
@@ -26,7 +30,6 @@ class ShoesDetailEncoder(ModelEncoder):
         "name",
         "color",
         "picture_url",
-        # "import_href",
         "bin"
     ]
 
@@ -63,7 +66,6 @@ def api_list_shoes(request, bin_vo_id=None):
         encoder=ShoesDetailEncoder,
         safe=False,
     )
-
 
 
 @require_http_methods(["GET", "DELETE", "PUT"])
