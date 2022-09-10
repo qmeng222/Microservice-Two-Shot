@@ -42,7 +42,12 @@ function Nav() {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/hats">
-                Hats
+                List of Hats
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/hats/new/">
+                Create Hat
               </NavLink>
             </li>
           </ul>

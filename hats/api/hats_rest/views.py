@@ -18,7 +18,7 @@ class LocationVODetailEncoder(ModelEncoder):
 
 class HatListEncoder(ModelEncoder):
     model = Hat
-    properties = ["style", "fabric", "color", "id"]
+    properties = ["style", "fabric", "color", "picture_url", "id"]
 
     def get_extra_data(self, o):
         return {"location": o.location.id}
@@ -68,7 +68,7 @@ def list_hats(request, location_vo_id=None):
             safe=False,
         )
 
-@require_http_methods(["GET", "PUT","DELETE"])
+@require_http_methods(["GET", "DELETE"])
 def show_hat(request, pk):
 
     if request.method == "GET":
@@ -78,7 +78,6 @@ def show_hat(request, pk):
             return JsonResponse(
                 {"message": "Hat does not exist"}
             )
-        
         return JsonResponse(
             hat,
             encoder=HatDetailEncoder,

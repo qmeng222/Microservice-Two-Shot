@@ -3,7 +3,7 @@
 Team:
 
 - Carmen Tang:
-- hats microservice: http://localhost:3000/hats
+- hats microservice: http://localhost:8090/hats
 
 - Qingying Meng:
 - shoes micservice: http://localhost:3000/shoes
@@ -22,5 +22,9 @@ microservice, here.
 
 ## Hats microservice
 
-Explain your models and integration with the wardrobe
-microservice, here.
+- Create Hat model
+- Create Hat Encoders
+- Create Hat Views using encoders
+- Create Hat List view in React
+- Create Hatform for making hat in React
+- Create delete button for each hat
