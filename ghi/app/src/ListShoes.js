@@ -22,7 +22,7 @@ function ListShoes(props) {
               <td>{shoes.name}</td>
               <td>{shoes.color}</td>
               <td>{shoes.picture_url}</td>
-              <td>{shoes.bin}</td>
+              <td>{shoes.bin_number}</td>
             </tr>
           );
         })}
