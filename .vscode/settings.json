@@ -1,4 +1,4 @@
-{
+
 {
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#2f7c47",
@@ -21,10 +21,7 @@
     },
     "peacock.color": "#215732",
     "python.analysis.extraPaths": [
-        "./hats/api"
+        "./hats/api",
+        "./shoes/api"
     ]
-},
-{
-    "python.analysis.extraPaths": ["./shoes/api"]
-}
 }
