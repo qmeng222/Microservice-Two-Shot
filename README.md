@@ -29,7 +29,7 @@ Shoes microservice has two models:
 
    - Model attributes: manufacturer, model name, color, picture url, and bin.
    - views.py contains functions to list, create, delete shoes through RESTful API.
-   - At the front end, we can list, create, and delete shoes through the React components.
+   - At the front end (http://localhost:3000/shoes), we can list, create, and delete shoes through the React components.
 
 ## Hats microservice
 
