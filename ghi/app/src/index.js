@@ -9,17 +9,22 @@ root.render(
   </React.StrictMode>
 );
 
-async function loadShoes() {
-  const response = await fetch("http://localhost:8080/api/shoes/");
-  if (response.ok) {
-    const data = await response.json();
+async function loadHatsAndShoes() {
+  const hatsResponse = await fetch('http://localhost:8090/api/hats/');
+  const shoesResponse = await fetch("http://localhost:8080/api/shoes/");
+
+  if (hatsResponse.ok && shoesResponse.ok) {
+    const hatsData = await hatsResponse.json();
+    const shoesData = await shoesResponse.json();
     root.render(
       <React.StrictMode>
-        <App shoes={data.shoes} />
+        <App hats={hatsData.hats} shoes={shoesData.shoes}/>
       </React.StrictMode>
     );
   } else {
-    console.error(response);
+    console.error(hatsResponse || shoesResponse);
+
   }
 }
-loadShoes();
+
+loadHatsAndShoes();

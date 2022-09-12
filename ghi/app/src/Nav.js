@@ -40,6 +40,16 @@ function Nav() {
                 Delete Shoes
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/hats">
+                List of Hats
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/hats/new/">
+                Create Hat
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>
