@@ -3,10 +3,10 @@
 Team:
 
 - Carmen Tang:
-- hats microservice: http://localhost:3000/hats
+- hats React components: http://localhost:3000/hats
 
 - Qingying Meng:
-- shoes micservice: http://localhost:3000/shoes
+- shoes React components: http://localhost:3000/shoes
 
 ## Design
 

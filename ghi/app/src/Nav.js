@@ -40,11 +40,6 @@ function Nav() {
                 Delete Shoes
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/hats">
-                Hats
-              </NavLink>
-            </li>
           </ul>
         </div>
       </div>
